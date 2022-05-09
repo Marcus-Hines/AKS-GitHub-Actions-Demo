@@ -85,7 +85,7 @@ jobs:
       # Creates a kubernetes secret on your Azure Kubernetes Service cluster that matches up to the credentials from the last step
       - name: Create K8s secret for pulling image from ACR
         run: |
-          az aks command invoke --resource-group mahinesrg --name myPrivateClusterBro create secret docker-registry image-pull-secret-name --docker-username ${{ steps.get-acr-creds.outputs.username }} --docker-password ${{ steps.get-acr-creds.outputs.password }} --docker-server ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io --docker-email 
+          az aks command invoke --resource-group mahinesrg --name myPrivateClusterBro --command "kubectl create secret docker-registry image-pull-secret-name --docker-username ${{ steps.get-acr-creds.outputs.username }} --docker-password ${{ steps.get-acr-creds.outputs.password }} --docker-server ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io --docker-email" 
 
       # Deploys application based on given manifest file
       - name: Deploys application
