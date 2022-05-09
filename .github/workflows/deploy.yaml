@@ -94,6 +94,7 @@ jobs:
           resource-group: mahinesrg
           name: myPrivateClusterBro
           action: deploy
+          private-cluster: true
           manifests: |
             manifests/azure-vote-backend-deployment.yaml
             manifests/azure-vote-backend-service.yaml
