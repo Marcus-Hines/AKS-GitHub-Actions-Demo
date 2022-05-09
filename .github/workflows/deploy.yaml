@@ -32,10 +32,10 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: "kingoliverDemoAcr"
+  AZURE_CONTAINER_REGISTRY: "myPrivateClusterBroACR"
   CONTAINER_NAME: "azure-voting-app"
-  RESOURCE_GROUP: "kingoliver-demo"
-  CLUSTER_NAME: "kingoliver-demo-cluster"
+  RESOURCE_GROUP: "mahinesrg"
+  CLUSTER_NAME: "myPrivateClusterBro"
   IMAGE_PULL_SECRET_NAME: "image-pull-secret-name"
 
 jobs:
@@ -93,7 +93,7 @@ jobs:
 
       # Deploys application based on given manifest file
       - name: Deploys application
-        uses: Azure/k8s-deploy@v3.0
+        uses: Marcus-Hines/k8s-deploy@v2.0
         with:
           action: deploy
           manifests: |
