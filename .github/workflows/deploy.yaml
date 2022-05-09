@@ -91,6 +91,8 @@ jobs:
       - name: Deploys application
         uses: Marcus-Hines/k8s-deploy@v2.0
         with:
+          resource-group: mahinesrg
+          name: myPrivateClusterBro
           action: deploy
           manifests: |
             manifests/azure-vote-backend-deployment.yaml
