@@ -89,7 +89,7 @@ jobs:
 
       # Deploys application based on given manifest file
       - name: Deploys application
-        uses: Marcus-Hines/k8s-deploy@v2.0
+        uses: Marcus-Hines/k8s-deploy@v2.1
         with:
           resource-group: mahinesrg
           name: myPrivateClusterBro
