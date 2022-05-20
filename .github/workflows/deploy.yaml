@@ -89,11 +89,12 @@ jobs:
 
       # Deploys application based on given manifest file
       - name: Deploys application
-        uses: Marcus-Hines/k8s-deploy@v2.1
+        uses: Marcus-Hines/k8s-deploy@v2.2
         with:
           resource-group: mahinesrg
           name: myPrivateClusterBro
           action: deploy
+          
           private-cluster: true
           manifests: |
             manifests/azure-vote-backend-deployment.yaml
