@@ -86,8 +86,7 @@ jobs:
       - name: Create K8s secret for pulling image from ACR
         run: |
           az aks command invoke --resource-group k8sdepoyrg --name myPrivateCluster --command "kubectl create secret docker-registry image-pull-secret-name --docker-username ${{ steps.get-acr-creds.outputs.username }} --docker-password ${{ steps.get-acr-creds.outputs.password }} --docker-server ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io --docker-email" 
-          az aks command invoke --resource-group k8sdepoyrg --name myPrivateCluster --command "kubectl create namespace mahinesns --dry-run=client -o yaml | kubectl apply -f -" 
-
+       
       # Deploys application based on given manifest file
       - name: Deploys application
         uses: Marcus-Hines/k8s-deploy@v2.4
@@ -95,7 +94,6 @@ jobs:
           resource-group: k8sdepoyrg
           name: myPrivateCluster
           action: deploy
-          namespace: "mahinesns"
           
           private-cluster: true
           manifests: |
