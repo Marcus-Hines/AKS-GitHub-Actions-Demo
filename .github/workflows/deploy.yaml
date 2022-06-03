@@ -34,7 +34,7 @@ on:
 env:
   AZURE_CONTAINER_REGISTRY: "myPrivateClusterBroACR"
   CONTAINER_NAME: "azure-voting-app"
-  RESOURCE_GROUP: "mahinesrg"
+  RESOURCE_GROUP: "k8sdepoyrg"
   CLUSTER_NAME: "myPrivateCluster"
   IMAGE_PULL_SECRET_NAME: "image-pull-secret-name"
 
