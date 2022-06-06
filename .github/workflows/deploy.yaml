@@ -32,7 +32,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: "myPrivateClusterBroACR"
+  AZURE_CONTAINER_REGISTRY: "marcusacr"
   CONTAINER_NAME: "azure-voting-app"
   RESOURCE_GROUP: "marcus"
   CLUSTER_NAME: "marcuscluster"
