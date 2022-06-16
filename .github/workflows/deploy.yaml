@@ -34,7 +34,7 @@ on:
 env:
   AZURE_CONTAINER_REGISTRY: "marcusacr"
   CONTAINER_NAME: "azure-voting-app"
-  RESOURCE_GROUP: "mahinesrg"
+  RESOURCE_GROUP: "mahines"
   CLUSTER_NAME: "myPrivateCluster"
   IMAGE_PULL_SECRET_NAME: "image-pull-secret-name"
 
@@ -85,13 +85,13 @@ jobs:
       # Creates a kubernetes secret on your Azure Kubernetes Service cluster that matches up to the credentials from the last step
       - name: Create K8s secret for pulling image from ACR
         run: |
-          az aks command invoke --resource-group mahinesrg --name myPrivateCluster --command "kubectl create secret docker-registry image-pull-secret-name --docker-username ${{ steps.get-acr-creds.outputs.username }} --docker-password ${{ steps.get-acr-creds.outputs.password }} --docker-server ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io --docker-email" 
+          az aks command invoke --resource-group mahines --name myPrivateCluster --command "kubectl create secret docker-registry image-pull-secret-name --docker-username ${{ steps.get-acr-creds.outputs.username }} --docker-password ${{ steps.get-acr-creds.outputs.password }} --docker-server ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io --docker-email" 
        
       # Deploys application based on given manifest file
       - name: Deploys application
         uses: Marcus-Hines/k8s-deploy@v2
         with:
-          resource-group: mahinesrg
+          resource-group: mahines
           name: myPrivateCluster
           action: deploy
           
