@@ -94,6 +94,7 @@ jobs:
           resource-group: mahines
           name: myPrivateCluster
           action: deploy
+          strategy: basic
           
           private-cluster: true
           manifests: |
